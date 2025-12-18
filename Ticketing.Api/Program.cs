@@ -14,13 +14,16 @@ builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy
-            .WithOrigins("https://ticketsystem1812.netlify.app")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
+    options.AddPolicy("AllowNetlify",
+        policy =>
+        {
+            policy
+                .WithOrigins(
+                    "https://ticketsystem1812.netlify.app"
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -81,13 +84,13 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+app.UseCors("AllowNetlify"); 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseCors("AllowFrontend");
 
 app.UseSwagger();
 app.UseSwaggerUI();
