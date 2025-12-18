@@ -6,6 +6,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", p =>
+        p.AllowAnyHeader()
+         .AllowAnyMethod()
+         .AllowAnyOrigin());
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -67,6 +75,7 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+app.UseCors("AllowFrontend");
 
 app.UseSwagger();
 app.UseSwaggerUI();
