@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
         {
             policy
                 .WithOrigins(
-                    "https://ticketsystem1812.netlify.app"
+                    "https://ticketsystem1812.netlify.app", "http://localhost:5173"
                 )
                 .AllowAnyHeader()
                 .AllowAnyMethod();
@@ -84,6 +84,8 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+app.UseRouting();
+
 app.UseCors("AllowNetlify"); 
 
 if (app.Environment.IsDevelopment())
@@ -98,6 +100,6 @@ app.UseSwaggerUI();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().RequireCors("AllowNetlify");
 
 app.Run();
