@@ -8,10 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", p =>
-        p.AllowAnyHeader()
-         .AllowAnyMethod()
-         .AllowAnyOrigin());
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins("https://ticketsystem1812.netlify.app")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
 
 // Add services to the container.
