@@ -1,15 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Tickets from "./pages/Tickets";
 import CreateTicket from "./pages/CreateTicket";
 import ProtectedRoute from "./components/ProtectedRoute";
+import RoleRoute from "./components/RoleRoute";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
+      <Navbar />
 
+      <Routes>
         <Route path="/login" element={<Login />} />
 
         <Route
@@ -25,7 +27,9 @@ function App() {
           path="/create"
           element={
             <ProtectedRoute>
-              <CreateTicket />
+              <RoleRoute allowedRoles={["Customer"]}>
+                <CreateTicket />
+              </RoleRoute>
             </ProtectedRoute>
           }
         />
