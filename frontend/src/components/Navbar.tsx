@@ -2,12 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 import { getUserRole } from "../utils/jwt";
 import styles from "./Navbar.module.css";
 
+
 export default function Navbar() {
   const role = getUserRole();
   const location = useLocation();
 
   // Hide navbar on login page
-  if (location.pathname === "/login") return null;
+  if (location.pathname === "/login") {
+    return null;
+  }
 
   const logout = () => {
     localStorage.removeItem("token");
