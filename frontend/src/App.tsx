@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Tickets from "./pages/Tickets";
 import CreateTicket from "./pages/CreateTicket";
@@ -12,6 +12,17 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route
+          path="/"
+          element={
+            localStorage.getItem("token") ? (
+              <Navigate to="/tickets" replace />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+
         <Route path="/login" element={<Login />} />
 
         <Route
