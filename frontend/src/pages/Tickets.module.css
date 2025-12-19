@@ -1,0 +1,51 @@
+.container {
+    padding: 32px;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .card {
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+  }
+  
+  .actionBtn {
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid #60a5fa;
+    color: #60a5fa;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .actionBtn:hover {
+    background: #60a5fa;
+    color: #000;
+  }
+  

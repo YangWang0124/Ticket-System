@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #60a5fa;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .link:hover {
+    color: #93c5fd;
+  }
+  
+  .roleBadge {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a78bfa;
+  }
+  
+  .logout {
+    background: transparent;
+    border: 1px solid #444;
+    color: #e5e7eb;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .logout:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
