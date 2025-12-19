@@ -5,6 +5,7 @@ import CreateTicket from "./pages/CreateTicket";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RoleRoute from "./components/RoleRoute";
 import Navbar from "./components/Navbar";
+import HealthPage from "./pages/HealthPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
 
       <Routes>
+      <Route path="/health" element={<HealthPage />} />
         <Route
           path="/"
           element={
